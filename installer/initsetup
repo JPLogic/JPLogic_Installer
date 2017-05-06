@@ -69,11 +69,15 @@ if fs.exists("OS_data/config") == true then
       --Save Config
     settings.save("OS_Data/config")
     os.unloadAPI("OS_API/settings")
+    print("Config created!")
+    sleep(2)
+      --Run Install Part 3
+    os.shell()
   else
     print("Standby...creating config file...")
     h = fs.open("OS_Data/config","w")
     h.write()
     h.close()
-    sleep(1)
+    sleep(2)
     os.shell("installer/initsetup")
 end
