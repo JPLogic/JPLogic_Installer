@@ -1,25 +1,67 @@
+--Setup
 if fs.exists("OS_data/config") == true then
-ecom = os.getComputerLabel()
-print("Enter monitor location: ")
-emon = read()
-print("Enter wireless location: ")
-erss = read()
-os.loadAPI("OS_API/settings")
-settings = settings.open("OS_Data/config")
-settings.addSection("Generic")
-settings.setSectionedValue("Generic", "title", "JPLogics Railway Management")
-settings.setSectionedValue("Generic", "bg", "OS_Data/Images/bg")
-settings.addSection("Specific")
-settings.setSectionedValue("Specific", "mon", emon)
-settings.setSectionedValue("Specific", "com", ecom)
-settings.setSectionedValue("Specific", "rss", erss)
-settings.save("OS_Data/config")
-os.unloadAPI("OS_API/settings")
+    ecom = os.getComputerLabel()
+    monx,mony = mon.getSize()
+
+--User Input
+    print("Enter monitor location: ")
+    emon = read()
+    print("Enter wireless location: ")
+    erss = read()
+
+--Variables
+    x,y = term.getSize()
+      --Monitor Present
+    monv = false
+      --Redstone Present
+    rssv = false
+
+--Peripheral IF
+      --Monitor IF
+    if emon = "" then
+      monv = false
+    else
+      monv = true
+    end
+      --Redstone IF
+
+--Monitor Config
+    mon = peripheral.wrap(emon)
+    monx,mony = mon.getSize()
+
+--Redstone Config
+
+--Create Config
+    os.loadAPI("OS_API/settings")
+    settings = settings.open("OS_Data/config")
+    settings.addSection("Generic")
+    settings.addSection("Specific")
+      --RailM = Rail Management
+    settings.addSection("RailM")
+      --RailT = Rail Ticket System
+    settings.addSection("RailT")
+    settings.setSectionedValue("Generic", "title", "JPLogics Railway Management")
+    settings.setSectionedValue("Generic", "bg", "OS_Data/Images/bg")
+    settings.setSectionedValue("Generic", "OSver", "OS_Data/CurrentOSVer")
+    
+      if emon = "True" then
+        settings.setSectionedValue("Specific", "mon", emon)
+      else
+        settings.setSectionedValie("Specific", "mon", "False")
+      end
+    settings.setSectionedValue("Specific", "com", ecom)
+      if rssv = "True" then
+        settings.setSectionedValue("Specific", "rss", erss)
+      else
+        settings.setSectionedValue("Specific", "rss", "False")
+      end
+    settings.save("OS_Data/config")
+    os.unloadAPI("OS_API/settings")
   else
-  print("Standby...creating config file...")
-  h = fs.open("OS_Data/config","w")
-  h.write()
-  h.close()
-  sleep(1)
-  os.shell("installer/initsetup")
+    print("Standby...creating config file...")
+    h = fs.open("OS_Data/config","w")
+    h.write()
+    h.close()
+    sleep(1)
+    os.shell("installer/initsetup")
 end
