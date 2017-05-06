@@ -32,18 +32,28 @@ if fs.exists("OS_data/config") == true then
 --Redstone Config
 
 --Create Config
+      --Open Config
     os.loadAPI("OS_API/settings")
     settings = settings.open("OS_Data/config")
+    
+      --General Settings
     settings.addSection("Generic")
+    
+      --Computer Specific
     settings.addSection("Specific")
+    
       --RailM = Rail Management
     settings.addSection("RailM")
+      
       --RailT = Rail Ticket System
     settings.addSection("RailT")
+      
+      --Create Generic Config
     settings.setSectionedValue("Generic", "title", "JPLogics Railway Management")
     settings.setSectionedValue("Generic", "bg", "OS_Data/Images/bg")
     settings.setSectionedValue("Generic", "OSver", "OS_Data/CurrentOSVer")
     
+    --Create Specific Config
       if emon = "True" then
         settings.setSectionedValue("Specific", "mon", emon)
       else
@@ -55,6 +65,8 @@ if fs.exists("OS_data/config") == true then
       else
         settings.setSectionedValue("Specific", "rss", "False")
       end
+      
+      --Save Config
     settings.save("OS_Data/config")
     os.unloadAPI("OS_API/settings")
   else
