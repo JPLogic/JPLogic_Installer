@@ -49,12 +49,12 @@ if fs.exists("OS_data/config") == true then
     settings.addSection("RailT")
       
       --Create Generic Config
-    settings.setSectionedValue("Generic", "title", "JPLogics Railway Management")
+    settings.setSectionedValue("Generic", "title", "JPLogics OS")
     settings.setSectionedValue("Generic", "bg", "OS_Data/Images/bg")
     settings.setSectionedValue("Generic", "OSver", "OS_Data/CurrentOSVer")
     
     --Create Specific Config
-      if emon = "True" then
+      if monv = "True" then
         settings.setSectionedValue("Specific", "mon", emon)
       else
         settings.setSectionedValie("Specific", "mon", "False")
