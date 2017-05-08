@@ -4,9 +4,6 @@ if fs.exists("OS_data/config") == true then
     monx,mony = mon.getSize()
 
 --User Input
-    emon = ""
-    erss = ""
-
 
 --Tables
 	local stage = {"[      /      /      /       /      /      /      ]","[======/      /      /       /      /      /      ]","[======/======/      /       /      /      /      ]","[======/======/======/       /      /      /      ]","[======/======/======/=======/      /      /      ]","[======/======/======/=======/======/      /      ]","[======/======/======/=======/======/======/      ]","[======/======/======/=======/======/======/======]"
@@ -36,9 +33,9 @@ centerText("Hello World")
 --Peripheral IF
       --Monitor IF
     	if emon = "" then
-     	 monv = false
+     	 monv = "false"
    		else
-    	 monv = true
+    	 monv = "true"
     	end
       --Redstone IF
 
