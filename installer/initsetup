@@ -34,7 +34,7 @@ centerText("Hello World")
       --Monitor IF
     	if emon = "" then
      	 monv = "false"
-   		else
+   		else then
     	 monv = "true"
     	end
       --Redstone IF
