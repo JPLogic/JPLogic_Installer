@@ -29,15 +29,6 @@ if fs.exists("OS_data/config") == true then
 		write(text)
 	end
 
-centerText("Hello World")
---Peripheral IF
-      --Monitor IF
-    	if emon = "" then
-     	 monv = "false"
-   		else then
-    	 monv = "true"
-    	end
-      --Redstone IF
 
 --Monitor Config
     mon = peripheral.wrap(emon)
