@@ -86,13 +86,13 @@ function main()
 	      if monv == true then
 	        settings.setSectionedValue("Specific", "mon", emon)
 	      else
-	      	settings.setSectionedValue("Specific", "mon", "false")
+	      	settings.setSectionedValue("Specific", "mon", "")
 	      end
 	    settings.setSectionedValue("Specific", "com", ecom)
 	      if rssv == true then
 	        settings.setSectionedValue("Specific", "rss", erss)
 	      else
-	      	settings.setSectionedValue("Specific", "rss", "false")
+	      	settings.setSectionedValue("Specific", "rss", "")
 	      end
 	     stageid = 4
 	     stagebar()
