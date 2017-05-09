@@ -54,7 +54,7 @@ function main()
 		monv = true
 	end
 	-- Redstone IF
-	if rssv == "" then
+	if erss == "" then
 		rssv = false
 	else
 		rssv = true
@@ -85,10 +85,14 @@ function main()
 	    --Create Specific Config
 	      if monv == true then
 	        settings.setSectionedValue("Specific", "mon", emon)
+	      else
+	      	settings.setSectionedValue("Specific", "mon", "false")
 	      end
 	    settings.setSectionedValue("Specific", "com", ecom)
 	      if rssv == true then
 	        settings.setSectionedValue("Specific", "rss", erss)
+	      else
+	      	settings.setSectionedValue("Specific", "rss", "false")
 	      end
 	     stageid = 4
 	     stagebar()
