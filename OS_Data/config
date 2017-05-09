@@ -1,0 +1,11 @@
+
+[RailT]
+
+[Specific]
+
+[Generic]
+OSver = OS_Data/CurrentOSVer
+title = JPLogics OS
+bg = OS_Data/Images/bg
+
+[RailM]

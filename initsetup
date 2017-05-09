@@ -1,0 +1,108 @@
+	--Boarder
+	program = "Installer"
+	shell.run("OS_Data/OS_Screen")
+	title = "Installer"
+	--Setup
+	if fs.exists("OS_Data/config") == true then
+
+	    ecom = os.getComputerLabel()
+
+	--User Input
+
+	--Tables
+		local stage = {"[      /      /      /       /      /      /      ]","[======/      /      /       /      /      /      ]","[======/======/      /       /      /      /      ]","[======/======/======/       /      /      /      ]","[======/======/======/=======/      /      /      ]","[======/======/======/=======/======/      /      ]","[======/======/======/=======/======/======/      ]","[======/======/======/=======/======/======/======]"
+	}
+	--Variables
+	    local x,y = term.getSize()
+		local stageid = 3
+		local monv = false
+		local rssv = false
+
+		local h = fs.open("OS_Data/CurrentOSVer", "r")
+		local OSver = h.readAll()
+		h.close()
+
+	--Function
+		local function stagebar()
+	 	 x1,y1 = term.getCursorPos()
+	 	 term.setCursorPos(1,y-2)
+	 	 write(stage[stageid])
+	 	 term.setCursorPos(x1,y1)
+		end
+		local function centerText(text)
+			local x,y = term.getSize()
+			local x1,y1 = term.getCursorPos()
+			term.setCursorPos(math.ceil((x / 2) - (text:len() / 2)), y1)
+			write(text)
+		end
+
+	--Program
+	term.setCursorPos(1,2)
+	centerText(title)
+	stagebar()
+	term.setCursorPos(1,3)
+	write("Enter monitor location: ")
+	    emon = read()
+	term.setCursorPos(1,4)
+	write("Enter wireless location: ")
+	    erss = read()
+	-- Monitor IF
+	if emon == "" then
+		monv = false
+	else
+		monv = true
+	end
+	-- Redstone IF
+	if rssv == "" then
+		rssv = false
+	else
+		rssv = true
+	end
+
+	--Create Config
+	      --Open Config
+	    os.loadAPI("OS_API/settings")
+	    local settings = settings.open("OS_Data/config")
+	    
+	      --General Settings
+	    settings.addSection("Generic")
+	    
+	      --Computer Specific
+	    settings.addSection("Specific")
+	    
+	      --RailM = Rail Management
+	    settings.addSection("RailM")
+	      
+	      --RailT = Rail Ticket System
+	    settings.addSection("RailT")
+	      
+	      --Create Generic Config
+	    settings.setSectionedValue("Generic", "title", "JPLogics OS")
+	    settings.setSectionedValue("Generic", "bg", "OS_Data/Images/bg")
+	    settings.setSectionedValue("Generic", "OSver", OSver)
+	    
+	    --Create Specific Config
+	      if monv == true then
+	        settings.setSectionedValue("Specific", "mon", emon)
+	      end
+	    settings.setSectionedValue("Specific", "com", ecom)
+	      if rssv == true then
+	        settings.setSectionedValue("Specific", "rss", erss)
+	      end
+	     stageid = 4
+	     stagebar()
+	      --Save Config
+	    settings.save("OS_Data/config")
+	    settings.close("OS_Data/config")
+	    os.unloadAPI("OS_API/settings")
+
+	    print("Config created!")
+	    sleep(2)
+	      --Run Install Part 3
+	  else
+	    print("Standby...creating config file...")
+	    h = fs.open("OS_Data/config", "w")
+	    h.write()
+	    h.close()
+	    sleep(2)
+	end
