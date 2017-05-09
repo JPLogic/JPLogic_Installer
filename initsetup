@@ -37,8 +37,9 @@
 		end
 
 	--Program
+function main()
 	term.setCursorPos(1,2)
-	centerText(title)
+	centerText("User Input")
 	stagebar()
 	term.setCursorPos(1,3)
 	write("Enter monitor location: ")
@@ -98,6 +99,8 @@
 
 	    print("Config created!")
 	    sleep(2)
+end
+parallel.waitForAny(main, OStime)
 	      --Run Install Part 3
 	  else
 	    print("Standby...creating config file...")
