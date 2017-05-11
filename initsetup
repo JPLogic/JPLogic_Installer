@@ -18,18 +18,18 @@
 				h.close()
 		local sid = installpart1
 --Function
-		local function stagebar()
-	 	 x1,y1 = term.getCursorPos()
-	 	 term.setCursorPos(1,y-2)
-	 	 write(stage[stageid])
-	 	 term.setCursorPos(x1,y1)
-		end
-		local function centerText(text)
-			local x,y = term.getSize()
-			local x1,y1 = term.getCursorPos()
-			term.setCursorPos(math.ceil((x / 2) - (text:len() / 2)), y1)
-			write(text)
-		end
+	local function stagebar()
+	 	x1,y1 = term.getCursorPos()
+	 	term.setCursorPos(1,y-2)
+	 	write(stage[stageid])
+	 	term.setCursorPos(x1,y1)
+	end
+	local function centerText(text)
+		local x,y = term.getSize()
+		local x1,y1 = term.getCursorPos()
+		term.setCursorPos(math.ceil((x / 2) - (text:len() / 2)), y1)
+		write(text)
+	end
 --Setup
 	if fs.exists("OS_Data/config") == true then
 
