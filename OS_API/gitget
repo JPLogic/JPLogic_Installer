@@ -85,17 +85,18 @@ if data.message and data.message == "Not found" then error("Invalid repository",
 	local drawProgress
 	if async and not silent then
 		local _, y = term.getCursorPos()
+		local x1,y1 = term.getSize()
 		local wide, _ = term.getSize()
-		term.setCursorPos(1, y)
+		term.setCursorPos(1, y-3)
 		term.write("[")
-		term.setCursorPos(wide - 6, y)
+		term.setCursorPos(wide - 6, y-3)
 		term.write("]")
 		drawProgress = function(done, max)
 			local value = done / max
-			term.setCursorPos(2,y)
+			term.setCursorPos(2,y-3)
 			term.write(("="):rep(math.floor(value * (wide - 8))))
 			local percent = math.floor(value * 100) .. "%"
-			term.setCursorPos(wide - percent:len(),y)
+			term.setCursorPos(wide - percent:len(),y-3)
 			term.write(percent)
 		end
 	end
