@@ -17,6 +17,7 @@
 			local OSver = h.readAll()
 				h.close()
 		local sid = installpart1
+		selectedid = 0
 --Function
 	local function stagebar()
 	 	x1,y1 = term.getCursorPos()
@@ -103,7 +104,6 @@
 			installpart2()
 	end
 function installpart2()
-	selected = 1
 	term.setCursorPos(1,2)
 	centerText("Program Selector")
 	stagebar()
