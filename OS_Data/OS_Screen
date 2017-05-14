@@ -19,8 +19,8 @@
 			local time = os.time()
 			local fTime = textutils.formatTime(time,true)
 			local fDay = os.day()
-			leftText("Day: "..day.." Time: "..fTime)
-			sleep(0.8)
+			leftText("Day: "..fday.." Time: "..fTime)
+			sleep(0.83)
 		end
 		end
 
