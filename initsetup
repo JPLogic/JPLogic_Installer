@@ -7,8 +7,7 @@
 --Tables
 		local stage = {"[      /      /      /       /      /      /      ]","[======/      /      /       /      /      /      ]","[======/======/      /       /      /      /      ]","[======/======/======/       /      /      /      ]","[======/======/======/=======/      /      /      ]","[======/======/======/=======/======/      /      ]","[======/======/======/=======/======/======/      ]","[======/======/======/=======/======/======/======]"
 	}
-		local programslist {["Ticket Machine"],["Station Display Board"],["Ticket Server"],["Train Control Server"],["IECC Display"]}
---Variables
+		--Variables
 	    	local x,y = term.getSize()
 		local stageid = 3
 		local monv = false
@@ -114,7 +113,7 @@ function installpart2()
 	
 end
 
-			parallel.waitForAny(sid, OStime)
+			parallel.waitForAny(installpart1, OStime)
 			
 	      --Run Install Part 3
 	  else
