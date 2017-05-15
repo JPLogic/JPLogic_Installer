@@ -35,6 +35,7 @@
 
 --Program
 	function installpart1()
+
 		term.setCursorPos(1,2)
 		centerText("User Input")
 		stagebar()
@@ -108,14 +109,14 @@ function installpart2()
 	stagebar()
 	term.setCursorPos(1,3)
 	centerText("Select which program you want to install")
-	
+	i = read()
 		 
 	
 end
 
 			parallel.waitForAny(installpart1, OStime)
+			parallel.waitForAny(installpart2, OStime)
 			
-	      --Run Install Part 3
 	  else
 	    print("Standby...creating config file...")
 	    h = fs.open("OS_Data/config", "w")
