@@ -119,7 +119,8 @@ function installpart2()
 	
 end
 
-			parallel.waitForAny(installpart1, installpart2, OStime)
+			parallel.waitForAny(installpart1, OStime)
+			parallel.waitForAny(installpart2, OStime)
 			
 	  else
 	    print("Standby...creating config file...")
